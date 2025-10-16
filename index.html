@@ -3,305 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C Program - Sum Calculator | Bhalchandra</title>
+    <title>My C Programs</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
             color: #d4d4d4;
-            line-height: 1.6;
-            min-height: 100vh;
             padding: 20px;
+            margin: 0;
         }
-
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            background: #252526;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
-
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid #3c3c3c;
-            margin-bottom: 40px;
-        }
-
         h1 {
-            font-size: 36px;
             color: #4ec9b0;
-            margin-bottom: 10px;
+            text-align: center;
         }
-
-        .subtitle {
-            color: #9cdcfe;
-            font-size: 18px;
+        h3 {
+            color: #569cd6;
+            margin-top: 30px;
         }
-
-        .author {
-            margin-top: 10px;
+        pre {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #4ec9b0;
+        }
+        code {
             color: #ce9178;
+        }
+        .interactive-section {
+            background: #2d2d30;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 2px solid #4ec9b0;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            color: #9cdcfe;
+            margin-bottom: 10px;
             font-size: 16px;
         }
-
-        .card {
-            background: #1e1e1e;
-            border: 1px solid #3c3c3c;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .section-title {
-            font-size: 24px;
-            color: #4ec9b0;
-            margin-bottom: 20px;
-            border-left: 4px solid #4ec9b0;
-            padding-left: 15px;
-        }
-
-        .code-container {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 20px;
-            overflow-x: auto;
-            position: relative;
-        }
-
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #3c3c3c;
-        }
-
-        .file-name {
-            color: #9cdcfe;
-            font-size: 14px;
-        }
-
-        .language-badge {
-            background: #3c3c3c;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            color: #d4d4d4;
-        }
-
-        pre {
-            margin: 0;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-        }
-
-        code {
-            color: #d4d4d4;
-        }
-
-        .line-numbers {
-            display: table;
+        input[type="text"] {
             width: 100%;
+            padding: 12px;
+            background: #1e1e1e;
+            border: 2px solid #3c3c3c;
+            border-radius: 5px;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            box-sizing: border-box;
         }
-
-        .line {
-            display: table-row;
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4ec9b0;
         }
-
-        .line-number {
-            display: table-cell;
-            text-align: right;
-            padding-right: 20px;
-            color: #858585;
-            user-select: none;
-            width: 40px;
-        }
-
-        .line-content {
-            display: table-cell;
-            padding-left: 10px;
-        }
-
-        .keyword { color: #569cd6; }
-        .function { color: #dcdcaa; }
-        .string { color: #ce9178; }
-        .number { color: #b5cea8; }
-        .variable { color: #9cdcfe; }
-        .operator { color: #d4d4d4; }
-        .comment { color: #6a9955; }
-
-        .description {
-            color: #a8a8a8;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            background: #2d2d2d;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid #4ec9b0;
-        }
-
-        .feature-title {
-            color: #4ec9b0;
+        button {
+            background: #4ec9b0;
+            color: #1e1e1e;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 5px;
+            transition: background 0.3s;
         }
-
-        .note {
-            background: #3c2a1e;
-            border-left: 4px solid #ce9178;
-            padding: 15px;
-            border-radius: 4px;
+        button:hover {
+            background: #5fd4bc;
+        }
+        .output-box {
             margin-top: 20px;
+            padding: 15px;
+            background: #1e1e1e;
+            border-radius: 5px;
+            border-left: 4px solid #ce9178;
+            min-height: 50px;
+            display: none;
         }
-
-        .note-title {
+        .output-box.show {
+            display: block;
+        }
+        .output-label {
             color: #ce9178;
             font-weight: bold;
             margin-bottom: 10px;
         }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            border-top: 2px solid #3c3c3c;
-            color: #858585;
+        .output-text {
+            color: #4ec9b0;
+            font-size: 18px;
         }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #4ec9b0;
-            color: #1e1e1e;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.3s;
+        .examples {
+            background: #2d2d30;
+            padding: 15px;
+            border-radius: 5px;
             margin-top: 20px;
-            font-weight: bold;
         }
-
-        .btn:hover {
-            background: #5fd4bc;
+        .examples h4 {
+            color: #dcdcaa;
+            margin-bottom: 10px;
+        }
+        .example-item {
+            color: #9cdcfe;
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Sum Calculator Program</h1>
-            <p class="subtitle">A simple C program to add two numbers</p>
-            <p class="author">👨‍💻 Created by Bhalchandra 🌙</p>
-        </header>
+        <h1>🖥 Character Checker Program</h1>
+        <p>Ye program check karta hai ki character alphabet, digit ya special hai.</p>
+        
+        <h3>C Code:</h3>
+        <pre><code>#include&lt;stdio.h&gt;
 
-        <div class="card">
-            <h2 class="section-title">Program Description</h2>
-            <p class="description">
-                This is a basic C program that demonstrates fundamental programming concepts including:
-                variable declaration, user input handling, arithmetic operations, and output formatting.
-                The program prompts the user to enter two numbers and then calculates and displays their sum.
-            </p>
+int main()
+{
+    char ch;
+    printf("Enter a Character:");
+    scanf("%c",&ch);
+    if ((ch>='a' && ch<='z')||(ch>='A' && ch<='Z'))
+        printf("It is an Alphabet");
+    else if (ch>='0' && ch<='9')
+        printf("It is a digit");
+    else
+        printf("It is a Special Character");
+    return 0;
+}</code></pre>
 
-            <div class="features">
-                <div class="feature-item">
-                    <div class="feature-title">Language</div>
-                    <div>C Programming</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-title">Input</div>
-                    <div>Two integers</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-title">Output</div>
-                    <div>Sum of numbers</div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-title">Difficulty</div>
-                    <div>Beginner Level</div>
-                </div>
+        <h3>🚀 Try It Live:</h3>
+        <div class="interactive-section">
+            <div class="input-group">
+                <label for="charInput">Enter a Character:</label>
+                <input type="text" id="charInput" maxlength="1" placeholder="Type any single character...">
             </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">Source Code</h2>
+            <button onclick="checkCharacter()">Check Character</button>
             
-            <div class="code-container">
-                <div class="code-header">
-                    <span class="file-name">📄 sum.c</span>
-                    <span class="language-badge">C</span>
-                </div>
-                <pre><code><div class="line-numbers"><div class="line"><span class="line-number">1</span><span class="line-content"><span class="keyword">#include</span><span class="operator">&lt;</span>stdio.h<span class="operator">&gt;</span></span></div><div class="line"><span class="line-number">2</span><span class="line-content"><span class="keyword">int</span> <span class="function">main</span><span class="operator">()</span></span></div><div class="line"><span class="line-number">3</span><span class="line-content"><span class="operator">{</span></span></div><div class="line"><span class="line-number">4</span><span class="line-content">    <span class="keyword">int</span> <span class="variable">a</span>, <span class="variable">b</span>, <span class="variable">sum</span>;</span></div><div class="line"><span class="line-number">5</span><span class="line-content">    <span class="function">printf</span><span class="operator">(</span><span class="string">"Enter first Number:"</span><span class="operator">);</span></span></div><div class="line"><span class="line-number">6</span><span class="line-content">    <span class="function">scanf</span><span class="operator">(</span><span class="string">"%d"</span>, <span class="operator">&</span><span class="variable">a</span><span class="operator">);</span></span></div><div class="line"><span class="line-number">7</span><span class="line-content">    <span class="function">printf</span><span class="operator">(</span><span class="string">"Enter Second Number:"</span><span class="operator">);</span></span></div><div class="line"><span class="line-number">8</span><span class="line-content">    <span class="function">scanf</span><span class="operator">(</span><span class="string">"%d"</span>, <span class="operator">&</span><span class="variable">b</span><span class="operator">);</span></span></div><div class="line"><span class="line-number">9</span><span class="line-content">    <span class="variable">sum</span> <span class="operator">=</span> <span class="variable">a</span> <span class="operator">+</span> <span class="variable">b</span>;</span></div><div class="line"><span class="line-number">10</span><span class="line-content">    <span class="function">printf</span><span class="operator">(</span><span class="string">"Sum=%d"</span>, <span class="variable">sum</span><span class="operator">);</span></span></div><div class="line"><span class="line-number">11</span><span class="line-content">    <span class="keyword">return</span> <span class="number">0</span>;</span></div><div class="line"><span class="line-number">12</span><span class="line-content"><span class="operator">}</span></span></div></div></code></pre>
-            </div>
-
-            <div class="note">
-                <div class="note-title">⚠ Important Note</div>
-                <p>Line 4 has been corrected to include the <code>sum</code> variable declaration. The original code was missing this declaration, which would cause a compilation error.</p>
+            <div class="output-box" id="outputBox">
+                <div class="output-label">Output:</div>
+                <div class="output-text" id="outputText"></div>
             </div>
         </div>
 
-        <div class="card">
-            <h2 class="section-title">How It Works</h2>
-            <div class="description">
-                <p><strong>Step 1:</strong> Include the standard input/output library (<code>stdio.h</code>)</p>
-                <p><strong>Step 2:</strong> Declare three integer variables: <code>a</code>, <code>b</code>, and <code>sum</code></p>
-                <p><strong>Step 3:</strong> Prompt user to enter the first number and store it in variable <code>a</code></p>
-                <p><strong>Step 4:</strong> Prompt user to enter the second number and store it in variable <code>b</code></p>
-                <p><strong>Step 5:</strong> Calculate the sum by adding <code>a</code> and <code>b</code></p>
-                <p><strong>Step 6:</strong> Display the result to the user</p>
-                <p><strong>Step 7:</strong> Return 0 to indicate successful program execution</p>
-            </div>
+        <div class="examples">
+            <h4>📝 Sample Outputs:</h4>
+            <div class="example-item">Input: 'a' → Output: It is an Alphabet</div>
+            <div class="example-item">Input: 'Z' → Output: It is an Alphabet</div>
+            <div class="example-item">Input: '5' → Output: It is a digit</div>
+            <div class="example-item">Input: '@' → Output: It is a Special Character</div>
+            <div class="example-item">Input: '#' → Output: It is a Special Character</div>
         </div>
-
-        <div class="card">
-            <h2 class="section-title">Sample Output</h2>
-            <div class="code-container">
-                <pre><code>Enter first Number: 10
-Enter Second Number: 25
-Sum=35</code></pre>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="section-title">How to Compile and Run</h2>
-            <div class="description">
-                <p><strong>Using GCC Compiler:</strong></p>
-                <div class="code-container" style="margin-top: 10px;">
-                    <pre><code>gcc sum.c -o sum
-./sum</code></pre>
-                </div>
-                <br>
-                <p><strong>Using Online Compiler:</strong></p>
-                <p>You can also run this code on online C compilers like:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li>OnlineGDB.com</li>
-                    <li>Programiz.com</li>
-                    <li>Repl.it</li>
-                </ul>
-            </div>
-            <a href="https://github.com/Bhalchandraguar-ai" class="btn">View on GitHub</a>
-        </div>
-
-        <footer>
-            <p>© 2024 Bhalchandra 🌙 | Built with ❤ for learning C Programming</p>
-            <p style="margin-top: 10px; font-size: 14px;">Hosted on GitHub Pages</p>
-        </footer>
     </div>
+
+    <script>
+        function checkCharacter() {
+            const input = document.getElementById('charInput');
+            const outputBox = document.getElementById('outputBox');
+            const outputText = document.getElementById('outputText');
+            
+            const ch = input.value;
+            
+            if (ch === '') {
+                outputText.textContent = 'Please enter a character!';
+                outputText.style.color = '#f48771';
+                outputBox.classList.add('show');
+                return;
+            }
+            
+            let result;
+            
+            if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+                result = 'It is an Alphabet';
+            } else if (ch >= '0' && ch <= '9') {
+                result = 'It is a digit';
+            } else {
+                result = 'It is a Special Character';
+            }
+            
+            outputText.textContent = result;
+            outputText.style.color = '#4ec9b0';
+            outputBox.classList.add('show');
+        }
+        
+        // Allow Enter key to check character
+        document.getElementById('charInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkCharacter();
+            }
+        });
+        
+        // Clear output when input changes
+        document.getElementById('charInput').addEventListener('input', function() {
+            document.getElementById('outputBox').classList.remove('show');
+        });
+    </script>
 </body>
 </html>
