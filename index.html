@@ -3,60 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My C Programs</title>
+    <title>Character Checker Program - Bhalchandra</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .code-block {
             background: #1e1e1e;
             color: #d4d4d4;
             padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #252526;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        }
-        h1 {
-            color: #4ec9b0;
-            text-align: center;
-        }
-        pre {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow-x: auto;
-            border-left: 4px solid #4ec9b0;
+            font-family: 'Courier New', Consolas, monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            border-left: 4px solid #667eea;
         }
-        code {
+
+        .code-block code {
             color: #ce9178;
+        }
+
+        .keyword {
+            color: #569cd6;
+        }
+
+        .string {
+            color: #ce9178;
+        }
+
+        .comment {
+            color: #6a9955;
+        }
+
+        .output-box {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            margin-top: 15px;
+        }
+
+        .output-title {
+            color: #764ba2;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .example {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .example strong {
+            color: #667eea;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🖥 Character Checker Program</h1>
-        <p>Ye program check karta hai ki character alphabet, digit ya special hai.</p>
-        
-        <h3>C Code:</h3>
-        <pre><code>#include&lt;stdio.h&gt;
+        <header>
+            <h1>🖥 Character Checker Program</h1>
+            <p class="subtitle">Check karta hai ki character Alphabet, Digit ya Special hai</p>
+            <div>
+                <span class="badge">C Programming</span>
+                <span class="badge">By Bhalchandra</span>
+            </div>
+        </header>
 
-int main()
+        <div class="section">
+            <h2>📝 Program Code</h2>
+            <div class="code-block">
+<code><span class="keyword">#include</span><span class="string">&lt;stdio.h&gt;</span>
+
+<span class="keyword">int</span> main()
 {
-    char ch;
-    printf("Enter a Character:");
-    scanf("%c",&ch);
-    if ((ch>='a' && ch<='z')||(ch>='A' && ch<='Z'))
-        printf("It is an Alphabet");
-    else if (ch>='0' && ch<='9')
-        printf("It is a digit");
-    else
-        printf("It is a Special Character");
-    return 0;
-}</code></pre>
+    <span class="keyword">char</span> ch;
+    printf(<span class="string">"Enter a Character:"</span>);
+    scanf(<span class="string">"%c"</span>, &ch);
+    
+    <span class="keyword">if</span> ((ch>=<span class="string">'a'</span> && ch<=<span class="string">'z'</span>) || (ch>=<span class="string">'A'</span> && ch<=<span class="string">'Z'</span>))
+        printf(<span class="string">"It is an Alphabet"</span>);
+    <span class="keyword">else if</span> (ch>=<span class="string">'0'</span> && ch<=<span class="string">'9'</span>)
+        printf(<span class="string">"It is a digit"</span>);
+    <span class="keyword">else</span>
+        printf(<span class="string">"It is a Special Character"</span>);
+    
+    <span class="keyword">return</span> 0;
+}</code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 Program Output Examples</h2>
+            <p style="margin-bottom: 20px; color: #666;">Different inputs ke liye output:</p>
+            
+            <div class="example">
+                <strong>Example 1 - Alphabet Input:</strong>
+                <div class="output-box">
+                    <div class="output-title">Output:</div>
+                    Enter a Character: <strong>A</strong><br>
+                    It is an Alphabet
+                </div>
+            </div>
+
+            <div class="example">
+                <strong>Example 2 - Digit Input:</strong>
+                <div class="output-box">
+                    <div class="output-title">Output:</div>
+                    Enter a Character: <strong>5</strong><br>
+                    It is a digit
+                </div>
+            </div>
+
+            <div class="example">
+                <strong>Example 3 - Special Character Input:</strong>
+                <div class="output-box">
+                    <div class="output-title">Output:</div>
+                    Enter a Character: <strong>@</strong><br>
+                    It is a Special Character
+                </div>
+            </div>
+
+            <div class="example">
+                <strong>Example 4 - Lowercase Alphabet:</strong>
+                <div class="output-box">
+                    <div class="output-title">Output:</div>
+                    Enter a Character: <strong>m</strong><br>
+                    It is an Alphabet
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Program Explanation</h2>
+            <p style="line-height: 1.8; color: #555;">
+                Ye program user se ek character input leta hai aur check karta hai ki wo:<br><br>
+                <strong>1. Alphabet hai:</strong> Agar character 'a' se 'z' ya 'A' se 'Z' ke beech me hai<br>
+                <strong>2. Digit hai:</strong> Agar character '0' se '9' ke beech me hai<br>
+                <strong>3. Special Character hai:</strong> Agar digits or alphabets me se kuchh nahi hai
+            </p>
+        </div>
+
+        <footer class="footer">
+            <p>Created by <strong>Bhalchandra Gaur</strong></p>
+            <p style="margin-top: 10px; font-size: 0.9em;">GitHub Pages | 2025</p>
+        </footer>
     </div>
 </body>
 </html>
